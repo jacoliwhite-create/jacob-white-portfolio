@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jacob White | Résumé</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1a2744;
+      --gold: #c9a84c;
+      --light: #f8f5f0;
+      --mid: #e8e2d8;
+    }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--light);
+      color: #2d2d2d;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ---- Top bar ---- */
+    .resume-header {
+      background: linear-gradient(135deg, var(--navy) 60%, #2a3f6e 100%);
+      color: white;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .resume-name {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .resume-title {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0.2rem;
+      text-decoration: none;
+    }
+    .contact-pill i { color: var(--gold); }
+
+    /* ---- Body layout ---- */
+    .resume-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ---- Section titles ---- */
+    .resume-section {
+      margin-bottom: 2.8rem;
+    }
+    .resume-section-title {
+      font-size: 1.3rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .resume-section-title i { color: var(--gold); }
+
+    /* ---- Individual entries ---- */
+    .entry {
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--mid);
+    }
+    .entry:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .entry-org {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .entry-role {
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .entry-date {
+      font-size: 0.82rem;
+      background: var(--mid);
+      color: var(--navy);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .entry-location {
+      font-size: 0.85rem;
+      color: #888;
+    }
+    ul.entry-bullets {
+      padding-left: 1.2rem;
+      color: #444;
+      margin-top: 0.5rem;
+    }
+    ul.entry-bullets li {
+      margin-bottom: 0.4rem;
+      line-height: 1.65;
+    }
+
+    /* ---- Skills tags ---- */
+    .skill-tag {
+      display: inline-block;
+      background: white;
+      border: 1px solid var(--mid);
+      color: #444;
+      padding: 0.3rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin: 0.2rem;
+    }
+    .skill-tag.highlight {
+      background: var(--navy);
+      color: var(--gold);
+      border-color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ---- Summary box ---- */
+    .summary-box {
+      background: white;
+      border-left: 4px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #444;
+    }
+
+    /* ---- Education GPA / highlight ---- */
+    .edu-highlight {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* ---- Print button ---- */
+    .print-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    .print-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+    }
+    @media print {
+      .print-btn { display: none; }
+      .resume-body { padding: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <div class="resume-header">
+    <div class="container text-center">
+      <h1 class="resume-name">Jacob White</h1>
+      <p class="resume-title mb-3">Pre-Business (Accounting) · BYU</p>
+      <div>
+        <span class="contact-pill"><i class="bi bi-geo-alt-fill"></i> Provo, Utah 84606</span>
+        <a href="tel:2534489319" class="contact-pill"><i class="bi bi-telephone-fill"></i> (253) 448-9319</a>
+        <a href="mailto:jacoliwhite@gmail.com" class="contact-pill"><i class="bi bi-envelope-fill"></i> jacoliwhite@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RESUME BODY ===== -->
+  <div class="resume-body">
+
+    <!-- SUMMARY -->
+    <div class="resume-section">
+      <h2 class="resume-section-title"><i class="bi bi-person-fill"></i> Summary</h2>
+      <div class="summary-box">
+        Dynamic and results-oriented professional with extensive experience in customer service and accounts management, honed at Carbide Processors. Exceptional teamwork and leadership abilities. Currently a Pre-Business (Accounting) student at BYU with hands-on experience in research, bilingual communication, and financial software.
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="resume-section">
+      <h2 class="resume-section-title"><i class="bi bi-mortarboard-fill"></i> Education</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">Brigham Young University</div>
+            <div class="entry-role">Pre-Business — Accounting Track</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>Provo, Utah</div>
+          </div>
+          <span class="entry-date">Currently Enrolled</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">Curtis Senior High School</div>
+            <div class="entry-role">High School Diploma</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>University Place, WA</div>
+          </div>
+          <span class="entry-date">June 2022</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="resume-section">
+      <h2 class="resume-section-title"><i class="bi bi-briefcase-fill"></i> Work Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">Carbide Processors</div>
+            <div class="entry-role">Accounts Payable Assistant</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>Provo, Utah</div>
+          </div>
+          <span class="entry-date">August 2024 – Present</span>
+        </div>
+        <ul class="entry-bullets">
+          <li>Processed invoices received from various vendors with accuracy and timeliness.</li>
+          <li>Operated QuickBooks to manage financial records and track accounts payable transactions.</li>
+          <li>Maintained constant communication with vendors and internal employees to coordinate efforts and resolve discrepancies.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">BYU — Dr. Iain Hunter's Lab</div>
+            <div class="entry-role">Research Assistant — Biomechanics</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>Provo, Utah</div>
+          </div>
+          <span class="entry-date">September 2025 – Present</span>
+        </div>
+        <ul class="entry-bullets">
+          <li>Assist in studying the biomechanics of elite-level runners and the relationship between movement patterns, performance, and injury prevention.</li>
+          <li>Support data collection, analysis, and lab operations under faculty supervision.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">Harbor Greens</div>
+            <div class="entry-role">Cashier</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>Local Grocery</div>
+          </div>
+          <span class="entry-date">April 2025 – August 2025</span>
+        </div>
+        <ul class="entry-bullets">
+          <li>Delivered a speedy and high-quality checkout experience at a specialty grocer focused on fresh produce, quality meats, and seasonal plants.</li>
+          <li>Assisted customers in selecting plants and locating products across a wide range of inventory.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <div class="entry-org">Missionary Training Center (MTC)</div>
+            <div class="entry-role">Language & Gospel Teacher</div>
+            <div class="entry-location"><i class="bi bi-geo-alt me-1"></i>Provo, Utah</div>
+          </div>
+          <span class="entry-date">September 2024 – October 2024</span>
+        </div>
+        <ul class="entry-bullets">
+          <li>Helped missionaries develop language acquisition skills and deepen their understanding of gospel principles.</li>
+          <li>Delivered structured lessons in a high-accountability, fast-paced learning environment.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="resume-section">
+      <h2 class="resume-section-title"><i class="bi bi-tools"></i> Skills</h2>
+      <div>
+        <span class="skill-tag highlight">QuickBooks</span>
+        <span class="skill-tag highlight">Microsoft Excel</span>
+        <span class="skill-tag highlight">Microsoft Word</span>
+        <span class="skill-tag highlight">Microsoft PowerPoint</span>
+        <span class="skill-tag">Accounts Payable</span>
+        <span class="skill-tag">Invoice Processing</span>
+        <span class="skill-tag">Customer Service</span>
+        <span class="skill-tag">Teamwork & Leadership</span>
+        <span class="skill-tag">Detail-Oriented</span>
+        <span class="skill-tag">Research Support</span>
+        <span class="skill-tag">Certified Evergreen Flagger</span>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="resume-section">
+      <h2 class="resume-section-title"><i class="bi bi-translate"></i> Languages</h2>
+      <span class="skill-tag highlight">English — Native</span>
+      <span class="skill-tag highlight">Tagalog — Fluent</span>
+    </div>
+
+  </div><!-- end resume-body -->
+
+  <!-- Print button -->
+  <button class="print-btn" onclick="window.print()" title="Print or Save as PDF">
+    <i class="bi bi-printer-fill"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
